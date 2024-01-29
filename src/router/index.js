@@ -47,14 +47,14 @@ router.beforeEach((to, from, next) => {
     })
     return
   }
-  // let userData = JSON.parse(sessionStorage.getItem('user'))
-  // let closedPages = ['users', 'user', 'posts', 'post']
-  // if (!userData?.token.length && closedPages.includes(to.name?.toLocaleLowerCase())) {
-  //   next({
-  //     name: 'Main'
-  //   })
-  //   return
-  // }
+  let userData = JSON.parse(sessionStorage.getItem('user'))
+  let closedPages = ['users', 'user', 'posts', 'post']
+  if (!userData?.token.length && closedPages.includes(to.name?.toLocaleLowerCase())) {
+    next({
+      name: 'Main'
+    })
+    return
+  }
 
   next()
 })
